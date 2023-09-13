@@ -5,7 +5,7 @@ import EventSummary from "@/Components/event-detail/event-summary";
 import EventLogistics from "@/Components/event-detail/event-logistics";
 import EventContent from "@/Components/event-detail/event-content";
 import ErrorAlert from "@/Components/events/ui/error-alert";
-
+import Head from 'next/head'
 
 
 function EventsDetailPage() {
@@ -24,7 +24,10 @@ function EventsDetailPage() {
 
   return (
     <Fragment>
-    
+     <Head>
+      <title>{event.title}</title>
+      <meta name="description" content={event.description}/>
+    </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
