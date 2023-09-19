@@ -6,6 +6,7 @@ import EventLogistics from "@/Components/event-detail/event-logistics";
 import EventContent from "@/Components/event-detail/event-content";
 import ErrorAlert from "@/Components/events/ui/error-alert";
 import Head from 'next/head'
+import Comments from "@/Components/input/comments";
 
 
 function EventsDetailPage() {
@@ -38,6 +39,7 @@ function EventsDetailPage() {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
+      <Comments eventId={event.id}/>
     </Fragment>
   );
 }
