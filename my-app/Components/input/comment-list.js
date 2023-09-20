@@ -2,7 +2,7 @@ import classes from './comment-list.module.css';
 
 function CommentList(props) {
   const { items } = props;
-
+console.log('items', items)
   return (
     <ul className={classes.comments}>
       {/* {items.map((item) => (
@@ -13,6 +13,7 @@ function CommentList(props) {
           </div>
         </li>
       ))} */}
+    
     </ul>
   );
 }

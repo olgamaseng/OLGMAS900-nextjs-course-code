@@ -9,7 +9,7 @@ import NotificationContext from "@/store/notification-context";
 
 function Comments(props) {
   const { eventId } = props;
-
+console.log('eventId', eventId)
   const notificationCtx = useContext(NotificationContext);
 
   const [showComments, setShowComments] = useState(false);
@@ -21,7 +21,7 @@ function Comments(props) {
       setIsFetchingComments(true);
       fetch('/api/comments/' + eventId)
         .then((response) => response.json())
-        .then((data) => {
+        .then((data) => { console.log("data", data)
           setComments(data.comments);
           setIsFetchingComments(false);
         });
