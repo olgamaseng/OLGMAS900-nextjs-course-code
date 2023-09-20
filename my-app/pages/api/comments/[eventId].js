@@ -1,13 +1,10 @@
-import {
-  connectDatabase,
-  insertDocument,
-  getAllDocuments,
-} from "@/helpers/db-util";
+import {connectDatabase, insertDocument, getAllDocuments, } from "@/helpers/db-util";
 
 async function handler(req, res) {
   const eventId = req.query.eventId;
 
   let client;
+
   try {
     client = await connectDatabase();
   } catch (error) {
@@ -51,12 +48,18 @@ async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
-      const documents = await getAllDocuments(client, "comments", { _id: -1 });
+      const documents = await getAllDocuments(
+        client, 
+        "comments", 
+      { _id: -1 }, 
+      );
       res.status(200).json({ Comments: documents });
     } catch (error) {
       res.status(500).json({ message: "Getting comments failed!" });
     }
   }
+  
+  client.close();
 }
 
 export default handler;
